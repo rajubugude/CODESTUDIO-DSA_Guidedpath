@@ -1,4 +1,4 @@
-[ProblemLink](https://www.codingninjas.com/codestudio/guided-paths/data-structures-algorithms/content/118820/offering/1381865)
+[Problem Link](https://www.codingninjas.com/codestudio/guided-paths/data-structures-algorithms/content/118820/offering/1381865)
 
 def sumInRanges(arr, n, queries, q): #todo bruteforce better and simple
     res = []
@@ -10,3 +10,30 @@ def sumInRanges(arr, n, queries, q): #todo bruteforce better and simple
             s += arr[i % n]
         res.append(s)
     return res
+
+
+#TODO OPTIMAL CODE
+
+def func(prefixsumarr, idx, n):
+    mod = 10**9+7
+    count = (idx//n) % mod
+    res = (count*prefixsumarr[n]) % mod
+    # Adding the remaining elements sum.
+    res = (res + prefixsumarr[idx%n]) % mod
+    return res
+
+def sumrange(n,arr,quires,q):
+    mod = 10**9+7
+    prefixSum = [0 for _ in range(n+1)]
+    ans = []
+    for i in range(1,n+1):
+        prefixSum[i] = (prefixSum[i-1]+arr[i-1]) % mod
+
+    for quiery in quires:
+        l = quiery[0]
+        r = quiery[1]
+
+        rsum = func(prefixSum, r, n)
+        lsum = func(prefixSum, l-1, n)
+        ans.append((rsum-lsum)%mod)
+    return ans
