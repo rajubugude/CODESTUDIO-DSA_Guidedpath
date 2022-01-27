@@ -1,1 +1,33 @@
 
+def xorQuery(queries): #todo TC : O(N^2)
+    #Write your code here.
+    res = []
+    for x,y in queries:
+        if x == 1:
+            res.append(y)
+        else:
+            for i in range(len(res)):
+                res[i] = res[i]^y
+    return res
+    
+    
+#TODO  Optimal code, T.C = 0(N) , S.C = O(N)
+
+def xorQuery(queries):
+    ans = []
+    xor = [0 for _ in range(len(queries))]
+
+    for x,y in queries:
+        if x == 1:
+            ans.append((y))
+        else:
+            xor[0] = xor[0] ^ y
+            xor[len(ans)] = xor[len(ans)] ^ y
+
+    for i in range(len(ans)):
+        if i == 0:
+            ans[i] = ans[i] ^ xor[i]
+        else:
+            xor[i] = xor[i-1] ^ xor[i]
+            ans[i] = ans[i] ^xor[i]
+    return ans
