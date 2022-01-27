@@ -1,3 +1,4 @@
+[PROBLEM LINK](https://www.codingninjas.com/codestudio/guided-paths/data-structures-algorithms/content/118820/offering/1381864)
 
 def xorQuery(queries): #todo TC : O(N^2)
     #Write your code here.
