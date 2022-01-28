@@ -29,8 +29,3 @@ def subArrayCount(arr, k):
             res[prefSum] = 0
         res[prefSum] += 1
     return count 
-    
-    
-    
-    
-    
