@@ -23,3 +23,31 @@ def flipBits(arr, n):
             maxValue = max(maxValue, count0 - count1)
     result = totalOnes + maxValue
     return result
+
+
+
+
+#optimal = using kadane's algo
+# T.C = O(N), S.C = O(1)
+
+Actually, we want to consider a subarray that maximizes the difference between the count of ones and zeroes. 
+If we change 1s to -1 and change 0 to 1, then the sum of values will give us the maximum difference between the counts(sum (Variable)). 
+So, we have to find a subarray with the maximum sum, which can be done by Kadane’s Algorithm.  Finally, we return the sum(variable) plus count of ones in the original array.
+
+
+def flipBits(a, n):
+    current, sum, ones = 0, 0, 0
+    for i in range(n):
+        if a[i] == 1:
+            ones += 1
+
+        if a[i] == 0:
+            a[i] = 1
+        else:
+            a[i] = -1
+        current = current + a[i]
+        sum = max(current, sum)
+        if (current<0):
+            current = 0
+    res = sum + ones
+    return res
