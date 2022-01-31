@@ -1,1 +1,25 @@
+#Brute force 
+The idea is to check for all the possible subarrays and inside each subarray, 
+check for the highest value of the difference between the count for zeroes and ones for this. 
+Let’s consider this highest difference to be MAX and initialize it to zero so formally MAX = count of zeroes in that subarray - count of ones in the same subarray.
 
+
+def flipBits(arr, n): 
+    maxValue = 0
+    totalOnes = 0
+    
+    # Consider all SubArrays by using two nested two loops
+    for i in range(n):
+        if (arr[i] == 1): 
+            totalOnes += 1
+            
+        count1 = 0
+        count0 = 0
+        for j in range(i, n):
+            if (arr[j] == 1): 
+                count1 += 1
+            else:
+                count0 += 1
+            maxValue = max(maxValue, count0 - count1)
+    result = totalOnes + maxValue
+    return result
