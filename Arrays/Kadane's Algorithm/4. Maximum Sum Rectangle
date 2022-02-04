@@ -16,7 +16,8 @@
 
 
 
-#optimal
+#optimal , T.C = O(N^3) , S.C = O(N)
+
 #method 1 = col as temp array
 
 def kadanes(arr, n):
