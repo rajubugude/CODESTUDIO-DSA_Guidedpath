@@ -1,1 +1,67 @@
+#brute force = O(N^6)
 
+# def maxSumRectangle(arr, n, m):
+#     maxi = arr[0][0]
+#     for starti in range(n):
+#         for startj in range(m):
+#             for endi in range(starti,n):
+#                 for endj in range(startj,m):
+#
+#                     submatrixSum = 0
+#                     for i in range(starti,endi+1):
+#                         for j in range(startj,endj+1):
+#                             submatrixSum += arr[i][j]
+#                     maxi = max(maxi,submatrixSum)
+#     return maxi
+
+
+
+#optimal
+#method 1 = col as temp array
+
+def kadanes(arr, n):
+    sum = 0
+    maxSum = arr[0]
+    for currIndex in range(n):
+        sum += arr[currIndex]
+        if(maxSum < sum):
+            maxSum = sum
+        if(sum < 0):
+            sum = 0
+    return maxSum
+
+def maxSumRectangle(arr, n, m): #col method
+    res = arr[0][0]
+    for startj in range(m):
+        subMatSum = [0 for _ in range(n)] #todo col array
+        for j in range(startj,m):
+            for i in range(n):
+                subMatSum[i] += arr[i][j]
+            res = max(res,kadanes(subMatSum,n))
+    return res
+    
+    
+    
+    #method 2 = row as temp array
+    
+    def kadanes(arr, n) :
+    sum = 0
+    maxSum = arr[0]
+    for currIndex in range(n):
+        sum += arr[currIndex]
+        if(maxSum < sum):
+            maxSum = sum
+        if(sum < 0):
+            sum = 0
+    return maxSum
+    
+    def maxSumRectangle(arr, n, m): #rows method
+    res = arr[0][0]
+    for starti in range(n):
+        subMatSum = [0 for _ in range(m)] #todo row array
+        for i in range(starti, n):
+            for j in range(m):
+                subMatSum[j] += arr[i][j]
+            res = max(res, kadanes(subMatSum, m))
+    return res
+    
