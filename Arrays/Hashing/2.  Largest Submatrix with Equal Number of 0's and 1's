@@ -1,3 +1,5 @@
+#max sum rectangle, (kadane's) based problems
+
 def zeroSum(arr,n):
     d = {0:-1} #with prefix sum as key
     s = 0
