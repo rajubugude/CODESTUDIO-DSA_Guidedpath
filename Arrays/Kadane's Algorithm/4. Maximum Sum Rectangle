@@ -42,26 +42,26 @@ def maxSumRectangle(arr, n, m): #col method
     
     
     
-    #method 2 = row as temp array
-    
-    def kadanes(arr, n) :
-    sum = 0
-    maxSum = arr[0]
-    for currIndex in range(n):
-        sum += arr[currIndex]
-        if(maxSum < sum):
-            maxSum = sum
-        if(sum < 0):
-            sum = 0
-    return maxSum
-    
-    def maxSumRectangle(arr, n, m): #rows method
-    res = arr[0][0]
-    for starti in range(n):
-        subMatSum = [0 for _ in range(m)] #todo row array
-        for i in range(starti, n):
-            for j in range(m):
-                subMatSum[j] += arr[i][j]
-            res = max(res, kadanes(subMatSum, m))
-    return res
+#method 2 = row as temp array
+
+def kadanes(arr, n) :
+sum = 0
+maxSum = arr[0]
+for currIndex in range(n):
+    sum += arr[currIndex]
+    if(maxSum < sum):
+        maxSum = sum
+    if(sum < 0):
+        sum = 0
+return maxSum
+
+def maxSumRectangle(arr, n, m): #rows method
+res = arr[0][0]
+for starti in range(n):
+    subMatSum = [0 for _ in range(m)] #todo row array
+    for i in range(starti, n):
+        for j in range(m):
+            subMatSum[j] += arr[i][j]
+        res = max(res, kadanes(subMatSum, m))
+return res
     
