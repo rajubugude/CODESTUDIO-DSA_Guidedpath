@@ -1,0 +1,28 @@
+def zeroSum(arr,n):
+    d = {0:-1} #with prefix sum as key
+    s = 0
+    maxi = 0
+    for i in range(n):
+        s += arr[i]
+        if s not in d:
+            d[s] = i
+        else:
+            maxi = max(maxi,(i-d[s]))
+    return maxi
+
+def maximumArea (mat, n, m):
+    for i in range(n):
+        for j in range(m):
+            if mat[i][j] == 0:
+                mat[i][j] = -1
+                   
+    res = 0
+    for startj in range(m):
+        subMat = [0 for _ in range(n)] #todo col array
+        for j in range(startj,m):
+            for i in range(n):
+                subMat[i] += mat[i][j]
+            w = j - startj + 1
+            temp = zeroSum(subMat,n)
+            res = max(res,temp * w )
+    return res
