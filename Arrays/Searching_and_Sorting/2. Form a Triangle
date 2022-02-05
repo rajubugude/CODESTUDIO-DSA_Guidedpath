@@ -1,0 +1,15 @@
+#traverse through every element and search(BINARY SEARCH)
+
+T.C = O(n^2),S.C = O(1)
+
+def possibleToMakeTriangle(arr):
+    arr.sort()
+    for i in range(len(arr)-1,1,-1):
+        l=0
+        r=i-1
+        while(l<r):
+            if arr[l]+arr[r]>arr[i]: #sum of 2sides is > 3rd side
+                return 1
+            else:
+                l+=1
+    return 0
