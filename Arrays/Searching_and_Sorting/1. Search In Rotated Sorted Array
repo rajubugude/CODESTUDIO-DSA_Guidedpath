@@ -1,0 +1,30 @@
+#T.C = O(LogN)
+
+#Hint : there will always be a sorted part in array i.e, either left or right, to know that always compare mid with low or high
+
+
+def search(arr, target) :
+    # Write your code here
+    start = 0
+    end = len(arr) - 1
+    while start <= end:
+        mid = (start+end)//2
+
+        if arr[mid] == target:
+            return mid
+
+        #if left side is sorted
+        if arr[start] <= arr[mid]:
+            if target >= arr[start] and target <= arr[mid]:
+                end = mid - 1
+            else:
+                start = mid + 1
+
+        #if right is sorted
+        if arr[mid] <= arr[end]:
+            if target >= arr[mid] and target <= arr[end]:
+                start = mid + 1
+            else:
+                end = mid-1
+
+    return -1   
