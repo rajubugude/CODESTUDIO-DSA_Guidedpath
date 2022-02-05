@@ -1,6 +1,6 @@
-#traverse through every element and search(BINARY SEARCH)
+#traverse through every element and CHECK
 
-T.C = O(n^2),S.C = O(1)
+T.C = O(NLOGN),S.C = O(1)
 
 def possibleToMakeTriangle(arr):
     arr.sort()
@@ -13,3 +13,18 @@ def possibleToMakeTriangle(arr):
             else:
                 l+=1
     return 0
+
+
+
+#BEST CODE
+
+T.C = O(nlogn) , S.C = 0(1)
+
+def possibleToMakeTriangle(arr):
+    # Sort the array in non-decreasing order.
+    arr.sort()
+    n = len(arr)
+    for i in range(n-2):
+        if (arr[i] + arr[i + 1] > arr[i + 2]):
+            return True
+    return False
