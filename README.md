@@ -1,4 +1,2 @@
-# CODESTUDIO-DSA_Guidedpath
+# [CODESTUDIO-DSA_Guidedpath](https://www.codingninjas.com/codestudio/guided-paths/data-structures-algorithms)
 ## Guided Path Problems with PYTHON 
-
-[Link here](https://www.codingninjas.com/codestudio/guided-paths/data-structures-algorithms)
