@@ -1,2 +1,2 @@
-# [CODESTUDIO-DSA_Guidedpath](https://www.codingninjas.com/codestudio/guided-paths/data-structures-algorithms)
+# [CODESTUDIO - DSA Guidedpath](https://www.codingninjas.com/codestudio/guided-paths/data-structures-algorithms)
 ## With PYTHON 
