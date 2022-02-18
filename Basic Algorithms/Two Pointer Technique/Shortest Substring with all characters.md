@@ -1,5 +1,5 @@
 ### [Problem Link Here](https://www.codingninjas.com/codestudio/guided-paths/data-structures-algorithms/content/118509/offering/1376559)
-#### Same as ([Longest Sub-string With K Distinct Characters]()) in strings> mixed> 1st problem with a little variation
+#### Same as ([Longest Sub-string With K Distinct Characters](https://github.com/rajubugude/CODESTUDIO-DSA_Guidedpath/blob/main/Strings/Intro%20to%20Strings/Mixed%20Problems/1.%20Longest%20Sub-string%20With%20K%20Distinct%20Characters.md)) in strings> mixed> 1st problem with a little variation
 ```
 def shortestSubstring(s):
     n = len(s)
