@@ -11,7 +11,8 @@ def countDistinctElements(arr, k):
     j = 0
     count = 0
     while j < n:
-        if j - i + 1 < k:
+        if j - i + 1 < k:  
+            #Acquire
             if arr[j] not in d:
                 d[arr[j]] = 1
             else:
@@ -19,15 +20,17 @@ def countDistinctElements(arr, k):
             j += 1
             
         if j - i + 1 == k:
-            if arr[j] not in d:
+            #Acquire
+            if arr[j] not in d: 
                 d[arr[j]] = 1
             else:
                 d[arr[j]] += 1
 
             count = len(d)
-            l.append(count)
+            l.append(count) 
             
-            if d[arr[i]] == 1:
+            #Release
+            if d[arr[i]] == 1: 
                 del d[arr[i]]
             else:
                 d[arr[i]] -= 1
