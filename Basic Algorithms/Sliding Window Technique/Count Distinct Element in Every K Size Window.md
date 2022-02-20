@@ -2,7 +2,7 @@
 
 
 #### By acquire and release method in hashmaps using sliding window algorithm 
-
+```
 def countDistinctElements(arr, k):
     n = len(arr)
     d = {}
@@ -38,3 +38,4 @@ def countDistinctElements(arr, k):
             j += 1
 
     return l 
+```
