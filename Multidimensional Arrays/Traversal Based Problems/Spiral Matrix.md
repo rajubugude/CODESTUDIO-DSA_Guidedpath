@@ -17,8 +17,7 @@ def spiralPathHelper(matrix, r, c, rows, cols, ans):
         ans.append(matrix[p][cols - 1])
   
     # Push Last Row, if Last and First Row are not same.
-    if((rows - 1) != r):
-        
+    if((rows - 1) != r):    
         for p in range(cols - 2, c - 1, -1):
             ans.append(matrix[rows - 1][p])
             
