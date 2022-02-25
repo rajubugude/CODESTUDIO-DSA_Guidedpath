@@ -39,47 +39,36 @@ def spiralPathMatrix(matrix, n, m):
 
 #### Iterative
 ```
-def spiralPathMatrix(matrix, n, m):
-    startI,startJ = 0, 0
-    endI,  endJ = m-1, n-1
-    ans = []
-
-    while startI <= endI and startJ <= endJ:
+def spiralPathMatrix(matrix, n, m):  
+    r = 0
+    rows = n
+    c = 0
+    cols = m
+    # Make array to store path.
+    path =[]
+    while r < rows and c < cols:
         
-        #toprow
-        if startI <= endI:
-            l, r = startI, endI
-            for j in range(l, r+1):
-                ans.append(matrix[startJ][j])
-            startJ += 1
-        else:
-            break
+        # Push the first row from the remaining rows.
+        for i in range (c, cols):
+            path.append(matrix[r][i])
+        r += 1
         
-        #rytside
-        if startJ <= endJ:
-            t, b = startJ, endJ
-            for i in range(t, b+1):
-                ans.append(matrix[i][endI])
-            endI -= 1
-        else:
-            break
+        # Push the last column from the remaining columns. 
+        for i in range (r, rows):
+            path.append(matrix[i][cols - 1])
+        cols -= 1
         
-        #bottom
-        if startI <= endI:
-            l, r = startI, endI
-            for j in range(r, l-1, -1):
-                ans.append(matrix[endJ][j])
-            endJ -= 1
-        else:
-            break
+        # Push the last row from the remaining rows. 
+        if r < rows:          
+            for i in range (cols - 1, c - 1, -1):
+                path.append(matrix[rows - 1][i])
+            rows -= 1
         
-        #leftside
-        if startJ <= endJ:
-            t, b = startJ, endJ
-            for i in range(b, t-1, -1):
-                ans.append(matrix[i][startI])
-            startI += 1
-        else:
-            break
-    return ans 
+        # Push the first column from the remaining columns. 
+        if c < cols:            
+            for i in range (rows - 1, r - 1, -1):
+                path.append(matrix[i][c])
+            c += 1
+            
+    return path
 ```
