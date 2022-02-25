@@ -4,7 +4,6 @@
 #### Recursive Code
 ```
 def spiralPathHelper(matrix, r, c, rows, cols, ans):
-    
     # If outside the matrix.
     if (r >= rows or c >= cols):
         return
@@ -24,24 +23,18 @@ def spiralPathHelper(matrix, r, c, rows, cols, ans):
             ans.append(matrix[rows - 1][p])
             
     # Print First Column,if Last and First Column are not same.
-    if ((cols - 1) != c):
-        
+    if ((cols - 1) != c):     
         for p in range(rows - 2, r, -1):
-            ans.append(matrix[p][c])
-            
+            ans.append(matrix[p][c])          
     # Make recursive call on smaller submatrix.
     spiralPathHelper(matrix, r + 1, c + 1, rows - 1, cols - 1 ,ans)
     
-def spiralPathMatrix(matrix, n, m):
-    
+def spiralPathMatrix(matrix, n, m):    
     r = 0
-    c = 0
-    
-    ans = []
-    
+    c = 0  
+    ans = []   
     # Take help of helper function to pass recursive calls.
     spiralPathHelper(matrix, r, c, n, m, ans)
-    
     return ans
 ```
 
