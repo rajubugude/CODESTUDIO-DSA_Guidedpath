@@ -18,9 +18,7 @@ def isPossible(arr,pages,m, n):
             sumallocated += arr[i]
     if count < m:
         return True
-    return False
-            
-     
+    return False    
 
 def allocateBooks(arr, n, m):
     if m > n :
