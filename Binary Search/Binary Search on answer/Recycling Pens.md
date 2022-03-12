@@ -19,16 +19,21 @@ def pens(n,r,k,c):
 #### T.C = O(logN)
 
 ```
-def pens(n,r,k,c):
+def recyclePens(n, r, k, c):
     lo, hi = 0, n
-    while lo < hi:
-        mid = (lo + hi + 1) // 2  #coz start from 1 pen so " +1 "
-        recycleCost = (n - mid) * k
+    ans = 0
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        recycleCost = (n-mid) * k
         netMoney = (r + recycleCost)
-        # Can we buy mid number of pens with that money?
+
         if (netMoney >= mid * c):
-            lo = mid
-        else:
+            lo = mid + 1
+            ans = mid
+        elif netMoney < mid * c:
             hi = mid - 1
-    return lo
+#         else:
+#             ans = mid
+#             break
+    return ans
 ```
